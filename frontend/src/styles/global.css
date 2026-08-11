@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap');
+
+/* ══════════════════════════════════════════════
+   DARK THEME  (default)
+══════════════════════════════════════════════ */
+:root,
+[data-theme="dark"] {
+  --bg-base:         #07090f;
+  --bg-surface:      #0e1120;
+  --bg-card:         rgba(255,255,255,0.035);
+  --bg-card-hover:   rgba(255,255,255,0.065);
+  --bg-input:        rgba(255,255,255,0.06);
+
+  --border:          rgba(255,255,255,0.08);
+  --border-hover:    rgba(255,255,255,0.18);
+  --border-focus:    rgba(124,58,237,0.6);
+
+  --text-primary:    #eef2ff;
+  --text-secondary:  #94a3b8;
+  --text-muted:      #475569;
+
+  --accent-purple:   #7c3aed;
+  --accent-purple-l: #a78bfa;
+  --accent-blue:     #3b82f6;
+  --accent-blue-l:   #93c5fd;
+  --accent-teal:     #14b8a6;
+  --accent-pink:     #ec4899;
+  --accent-green:    #22c55e;
+  --accent-red:      #ef4444;
+  --accent-amber:    #f59e0b;
+
+  --glow-purple:     rgba(124,58,237,0.35);
+  --glow-blue:       rgba(59,130,246,0.35);
+
+  --gradient-brand:  linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  --gradient-purple: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+  --gradient-blue:   linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+  --gradient-teal:   linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+  --gradient-pink:   linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:   0 8px 32px rgba(0,0,0,0.45);
+  --shadow-lg:   0 24px 80px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 40px rgba(124,58,237,0.2);
+
+  --navbar-bg: rgba(7,9,15,0.82);
+  --toggle-bg: rgba(255,255,255,0.08);
+  --toggle-track: #1e1b4b;
+}
+
+/* ══════════════════════════════════════════════
+   LIGHT THEME
+══════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg-base:         #f1f5f9;
+  --bg-surface:      #ffffff;
+  --bg-card:         rgba(255,255,255,0.9);
+  --bg-card-hover:   rgba(255,255,255,1);
+  --bg-input:        #f8fafc;
+
+  --border:          rgba(0,0,0,0.08);
+  --border-hover:    rgba(0,0,0,0.18);
+  --border-focus:    rgba(124,58,237,0.5);
+
+  --text-primary:    #0f172a;
+  --text-secondary:  #475569;
+  --text-muted:      #94a3b8;
+
+  --accent-purple:   #7c3aed;
+  --accent-purple-l: #6d28d9;
+  --accent-blue:     #2563eb;
+  --accent-blue-l:   #1d4ed8;
+  --accent-teal:     #0d9488;
+  --accent-pink:     #db2777;
+  --accent-green:    #16a34a;
+  --accent-red:      #dc2626;
+  --accent-amber:    #d97706;
+
+  --glow-purple:     rgba(124,58,237,0.15);
+  --glow-blue:       rgba(37,99,235,0.15);
+
+  --gradient-brand:  linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  --gradient-purple: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+  --gradient-blue:   linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  --gradient-teal:   linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+  --gradient-pink:   linear-gradient(135deg, #9d174d 0%, #db2777 100%);
+
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md:   0 8px 32px rgba(0,0,0,0.1);
+  --shadow-lg:   0 24px 80px rgba(0,0,0,0.15);
+  --shadow-glow: 0 0 40px rgba(124,58,237,0.1);
+
+  --navbar-bg: rgba(255,255,255,0.88);
+  --toggle-bg: rgba(0,0,0,0.07);
+  --toggle-track: #e0e7ff;
+}
+
+/* ══════════════════════════════════════════════
+   SHARED RADIUS & SPACING
+══════════════════════════════════════════════ */
+:root {
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 9999px;
+}
+
+/* ══════════════════════════════════════════════
+   RESET
+══════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-optical-sizing: auto;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* Theme-aware background blobs */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 15% -15%, rgba(124,58,237,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(59,130,246,0.10) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.35s ease;
+}
+
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 15% -15%, rgba(124,58,237,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(37,99,235,0.06) 0%, transparent 55%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: var(--r-full);
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════════════════
+   LAYOUT
+══════════════════════════════════════════════ */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: 2.5rem 2rem 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ══════════════════════════════════════════════
+   TRANSITIONS — applied globally for theme switch
+══════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow, opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+/* Override for animations that should be immediate */
+.no-transition,
+.no-transition * {
+  transition: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow-purple); }
+  50%       { box-shadow: 0 0 20px 4px var(--glow-purple); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
